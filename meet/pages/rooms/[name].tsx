@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>LiveKit Meet</title>
+        <title>Teacher Kitty</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
               }}
               defaults={{
                 username: '',
-                videoEnabled: true,
+                videoEnabled: false,
                 audioEnabled: true,
               }}
               onSubmit={(values) => {
@@ -70,7 +70,7 @@ const ActiveRoom = ({ roomName, userChoices, onLeave }: ActiveRoomProps) => {
     userInfo: {
       identity: userChoices.username,
       name: userChoices.username,
-      metadata: JSON.stringify({ languageCode: userChoices.language }),
+      metadata: JSON.stringify({ languageCode: userChoices.language,speakRate:userChoices.speakRate}),
     },
   });
 

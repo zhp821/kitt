@@ -32,6 +32,7 @@ export interface VideoConferenceProps extends React.HTMLAttributes<HTMLDivElemen
 
 export function VideoConference({ chatMessageFormatter, ...props }: VideoConferenceProps) {
   const isMobile = useMediaQuery(`(max-width: 660px)`);
+  console.log("~~~~~~~~~~~~~~~~111");
 
   const tracks = useTracks(
     [
@@ -49,7 +50,7 @@ export function VideoConference({ chatMessageFormatter, ...props }: VideoConfere
 
   const focusTrack = usePinnedTracks(layoutContext)?.[0];
   const carouselTracks = tracks.filter((track) => !isEqualTrackRef(track, focusTrack));
-
+console.log("~~~~~~~~~~~~~~~~111333333");
   React.useEffect(() => {
     // if screen share tracks are published, and no pin is set explicitly, auto set the screen share
     if (
@@ -63,7 +64,7 @@ export function VideoConference({ chatMessageFormatter, ...props }: VideoConfere
       trackReference: screenShareTracks[0],
     });
   }, [JSON.stringify(screenShareTracks.map((ref) => ref.publication.trackSid))]);
-
+console.log("$$$$$$$$$$$$$$$$$$$4444");
   return (
     <div className="lk-video-conference" {...props}>
       <LayoutContextProvider value={layoutContext}>

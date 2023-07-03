@@ -19,15 +19,17 @@ export type LocalUserChoices = {
   videoDeviceId: string;
   audioDeviceId: string;
   language: string;
+  speakRate: number;
 };
 
 const DEFAULT_USER_CHOICES = {
   username: '',
-  videoEnabled: true,
+  videoEnabled: false,
   audioEnabled: true,
   videoDeviceId: '',
   audioDeviceId: '',
   language: 'en-US',
+  speakRate: 1.0,
 };
 
 const ParticipantPlaceholder = (props: React.SVGProps<SVGSVGElement>) => (
@@ -201,7 +203,7 @@ export const PreJoin = ({
   onSubmit,
   onError,
   debug,
-  joinLabel = 'Join Room',
+  joinLabel = 'Call Kitty',
   micLabel = 'Microphone',
   camLabel = 'Camera',
   userLabel = 'Username',
@@ -224,7 +226,7 @@ export const PreJoin = ({
     defaults.audioDeviceId ?? DEFAULT_USER_CHOICES.audioDeviceId,
   );
   const [lang, setLang] = React.useState<string>(DEFAULT_USER_CHOICES.language);
-
+  const [speakRate, setSpeakRate] = React.useState<number>(DEFAULT_USER_CHOICES.speakRate);
   const video = usePreviewDevice(videoEnabled, videoDeviceId, 'videoinput');
   const videoEl = React.useRef(null);
 
@@ -270,6 +272,7 @@ export const PreJoin = ({
       audioEnabled: audioEnabled,
       audioDeviceId: audio.selectedDevice?.deviceId ?? '',
       language: lang,
+      speakRate: speakRate,
     };
     setUserChoices(newUserChoices);
     setIsValid(handleValidation(newUserChoices));
@@ -281,6 +284,7 @@ export const PreJoin = ({
     audioEnabled,
     audio.selectedDevice,
     lang,
+    speakRate,
   ]);
 
   function handleSubmit(event: React.FormEvent) {
@@ -358,6 +362,21 @@ export const PreJoin = ({
           <option value="fr-FR">French (France)</option>
           <option value="de-DE">German (Germany)</option>
           <option value="es-ES">Spanish</option>
+        </select>
+        <select
+          className={styles.startSelect}
+          onChange={(e) => {
+            setSpeakRate(Number(e.target.value));
+          }}
+        >
+          <option value="1">正常语速</option>
+          <option value="0.25">1/4语速</option>
+          <option value="0.5">1/2语速</option>
+          <option value="0.75">3/4语速</option>
+          <option value="1.25">1.25倍语速</option>
+          <option value="1.5">1.5倍语速</option>
+          <option value="1.75">1.75倍语速</option>
+          <option value="2">2倍语速</option>
         </select>
         <input
           className="lk-form-control"
