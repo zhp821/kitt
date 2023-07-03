@@ -87,3 +87,4 @@ require (
 	google.golang.org/genproto v0.0.0-20230403163135-c38d8f061ccd // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 )
+replace github.com/livekit/mediatransportutil => github.com/livekit/mediatransportutil v0.0.0-20230326055817-ed569ca13d26

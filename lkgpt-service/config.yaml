@@ -9,10 +9,9 @@ logging:
   level: debug
 
 livekit:
-  url: wss://chattogpt-r9z71rqw.livekit.cloud
-  api_key: API9Pf94wzL5mXT
-  secret_key: z2TjNOKtKF41dY2cHbqCJjsBGG2tUXgcf97j6vvKjhV
+  url: ws://localhost:7880
+  api_key: devkey
+  secret_key: secret
 
-openai_api_key: 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
-
-port: 3001       
+openai_api_key: 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
+port: 3001    

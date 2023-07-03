@@ -14,6 +14,7 @@ import (
 
 	stt "cloud.google.com/go/speech/apiv1"
 	tts "cloud.google.com/go/texttospeech/apiv1"
+	"github.com/livekit-examples/livegpt/pkg/flow"
 	"github.com/pion/webrtc/v3"
 	"github.com/sashabaranov/go-openai"
 	"golang.org/x/exp/slices"
@@ -70,10 +71,13 @@ type Language struct {
 	Label            string
 	TranscriberCode  string
 	SynthesizerModel string
+	SpeakRate        float64
 }
 
 type ParticipantMetadata struct {
-	LanguageCode string `json:"languageCode,omitempty"`
+	LanguageCode string  `json:"languageCode,omitempty"`
+	SpeakRate    float64 `json:"speakRate,omitempty"`
+	ChatFlow     string  `json:"chatFlow,omitempty"`
 }
 
 type GPTParticipant struct {
@@ -212,6 +216,7 @@ func (p *GPTParticipant) trackSubscribed(track *webrtc.TrackRemote, publication 
 	}
 
 	language, ok := Languages[metadata.LanguageCode]
+	language.SpeakRate = metadata.SpeakRate
 	if !ok {
 		language = DefaultLanguage
 	}
@@ -224,6 +229,16 @@ func (p *GPTParticipant) trackSubscribed(track *webrtc.TrackRemote, publication 
 	}
 
 	p.transcribers[rp.SID()] = transcriber
+
+	chatflow := flow.Create("EnglishTextFlow")
+	resultinit := RecognizeResult{
+		Text:    strings.Replace(chatflow.Syspromt(), "{name}", rp.Identity(), -1),
+		IsFinal: true,
+	}
+	go func() {
+		p.onTranscriptionReceived(resultinit, rp, transcriber)
+	}()
+
 	go func() {
 		for result := range transcriber.Results() {
 			p.onTranscriptionReceived(result, rp, transcriber)
@@ -314,6 +329,9 @@ func (p *GPTParticipant) activateParticipant(rp *lksdk.RemoteParticipant) {
 func (p *GPTParticipant) onTranscriptionReceived(result RecognizeResult, rp *lksdk.RemoteParticipant, transcriber *Transcriber) {
 	if result.Error != nil {
 		_ = p.sendErrorPacket(fmt.Sprintf("Sorry, an error occured while transcribing %s's speech using Google STT", rp.Identity()))
+		return
+	}
+	if result.Text == "" {
 		return
 	}
 
@@ -497,7 +515,7 @@ func (p *GPTParticipant) answer(events []*MeetingEvent, prompt *SpeechEvent, rp 
 			} else {
 				continue
 			}
-
+			lang.SpeakRate = language.SpeakRate
 			language = lang
 			break
 		}

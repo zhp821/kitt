@@ -31,6 +31,7 @@ func (s *Synthesizer) Synthesize(ctx context.Context, text string, language *Lan
 		AudioConfig: &ttspb.AudioConfig{
 			AudioEncoding:   ttspb.AudioEncoding_OGG_OPUS,
 			SampleRateHertz: 48000,
+			SpeakingRate:    language.SpeakRate,
 		},
 	}
 

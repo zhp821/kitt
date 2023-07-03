@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "elated-fabric-389711",
+    "private_key_id": "d5808aec77359e57e161e1ecf58c7d560da19b47",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCQeLHT3/lktZjL\nEgkHrZt9xNb+CfO4dX8cVg0OWmlVj3GcAMrYVyc0CuQ06/XD1SGHkAK3SRi7iZJQ\nIoujW8Ds6plftFw7Z+9ydbeR1ZDzT2FAmjXfsL1XO03IxiuQmRjpdO9YE0OxwdMN\nd+v7h7PrjXsDYFRhE1vyombIYhGHZnchlHaW+oGC1U+gM6ApQRWdQz4NObWJ2hQW\nDsG0H2Ou0IumNvL/Ktdg7Nu+HbcQwXIVjKYm0WPbsd4Wva0iYzbSIZN9X+Lsvlmh\n6fbb925+S0fw+r+lJYUAWmu3w2BbEPCmVLngSqVLwbZW3o1nyAk5DMGp3mMfpJ32\nO6tro767AgMBAAECggEAA0QPNQxvnVSzlweZ16gXh0DPYV/FOCrDzFavpd7qWapL\n9axY6YoS00zZus6IuDwVrXRWc2E+I2MpQRF+2ZsF4fUtsWmo2hjv40UA+NV8mNt3\nBdhWlm9u4E1xZTQBoRus4f4oOPP6iEaq6DeJSJ7ZNN52ZO2lCqq+3d3I+AergMWK\nAZ4uFJjNSAbWJmujmQlV0/bZmNSUOSTruHbHLAH8nDa94ARcT19wbTiNmsouZG1v\nOC8yQ2dYEjtuDVFvzir8cjdBojNnU83Ucp8hQQsN302gf0ggmZPWNhB023nen7CK\n8qxxLpCjqQYwmBmBmf83bhCydQ3PEFlNxC9N9AQ2bQKBgQDHNum89mYuaHOObqpP\nohwjQq8sLK/ZYuZ2WtjxbbLcqHkHUP7nheXRhRtIFBLG1YxVUICE+goVQTj7PjWq\nKJx4p5QKy87d2w08GLlGz4wFjzeKTIzyqWkEBAjdlYxDRS54nTgXHGHWKNmGxoU7\nHQ/OiRomSjEL7j/iBMmILFwsDQKBgQC5pxIcPzpnhdd8YCRPojLhXi0oe4H9CBUT\nbTE2AO6JlQMW/ljoAoOyXqFPWY5R1+DvN4peEaF3+a8CVqz4EkNlkorLkuNwg3O6\nh/eZd+7WVu3CfxVDJES0fxj6Ovj5vPONVreS8/plRPlb1iRS+4X1LINSPKO63ruL\nj82GHlU75wKBgBYW9bYZUF1HAcFCbiokXKBgTZJFZj5hpBJtom6q7lFfcQQprAo6\nI7Cm5M6KQ0a++S+gnI+iNioDMHFThZnXpPoQAu9riAW7u2z1hN3gN7OKHOt974cc\n1+M1G1KOuZ3f9vYy4LxXTlXz86LpMm7Kmy0YsMicI3IiOf0y8LHj0VilAoGAMtn3\nVPNgrQB1IKU47PMRmrdwCRmjZkpzc2nCQ/eHXvoI6aBre8lMh2vyJUjzeal2/C8r\nYE7V+oXSkQJqyFxAR68XA2HNmID5Dwu1Hz1Bl0YiQ9cJXOWvR/1UOx4yGj3OPFWX\nXNIlMN3uq2ABfRVWAOzbX4gqlMHzfuu5sNXYJNsCgYApPSY21DDg//oJGeNXa6Ih\ndwvhZ74SzV66tYLaoTZsjVK+FDqCCXE+yXjdwFcnC5pifbj3EUXvNXakMJfjXg0Y\n+wjEgLJribkzZjArAcI8589E0oSMyJNle4cIS4A1Ub5QSymmbRbmQiKU7FxCUPvZ\nGi+LZXkbSOklYkEQRofZTg==\n-----END PRIVATE KEY-----\n",
+    "client_email": "teacher@elated-fabric-389711.iam.gserviceaccount.com",
+    "client_id": "102422699773206969577",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/teacher%40elated-fabric-389711.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }

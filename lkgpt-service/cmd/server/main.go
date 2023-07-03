@@ -12,11 +12,10 @@ import (
 	"github.com/urfave/cli/v2"
 	"google.golang.org/api/option"
 
-	"github.com/livekit-examples/livegpt/pkg/config"
-	"github.com/livekit-examples/livegpt/pkg/service"
-
 	stt "cloud.google.com/go/speech/apiv1"
 	tts "cloud.google.com/go/texttospeech/apiv1"
+	"github.com/livekit-examples/livegpt/pkg/config"
+	"github.com/livekit-examples/livegpt/pkg/service"
 )
 
 func main() {
@@ -55,6 +54,8 @@ func main() {
 func runServer(c *cli.Context) error {
 	configFile := c.String("config")
 	configBody := c.String("config-body")
+	strpath, _ := os.Getwd()
+	logger.Infow(strpath)
 	if configBody == "" {
 		if configFile == "" {
 			return errors.New("config file or config body is required")
