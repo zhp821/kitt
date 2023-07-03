@@ -5,13 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "ConsoleChatGPT",
-            "request": "launch",
-            "mainClass": "com.plexpt.chatgpt.ConsoleChatGPT",
-            "projectName": "chatgpt"
-        },
-        {
             "name": "Debug",
             "type": "go",
             "request": "launch",

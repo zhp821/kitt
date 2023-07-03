@@ -14,4 +14,4 @@ livekit:
   secret_key: secret
 
 openai_api_key: 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
-port: 3001    
+port: 3001
